@@ -166,3 +166,19 @@ Notice any issues with a repository? Please file a github issue in the repositor
 3. Uncomment the code.
 4. Right-click on the test file in the Project view and choose Run.
 5. After the app builds and runs, verify in the SleepDatabaseTest pane that all the tests have passed.
+
+
+## Adding a ViewModel
+1. In the sleeptracker package, open SleepTrackerViewModel.kt.
+2. Inspect the provided SleepTrackerViewModel class definition that extends AndroidViewModel().
+3. In the sleeptracker package, open SleepTrackerViewModelFactory.kt
+4. In the body of create(), we check that there is a SleepTrackerViewModel class available, and if there is, return an instance of it. Otherwise, we throw an exception.
+5. In the SleepTrackerFragment, in onCreateView(), get a reference to the application context
+6. Define a dataSource.
+7. Create an instance of the viewModelFactory.
+8. Get a reference to the SleepTrackerViewModel
+9. Your finished code in the SleepTrackerFragment should look like this
+10. In SleepTrackerFragment inside onCreateView()
+11. In fragment_sleep_tracker.xml
+12. In SleepTrackerFragment inside onCreateView()
+13. Finally, as always, make sure your code builds and runs without errors.
