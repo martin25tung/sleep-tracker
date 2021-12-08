@@ -245,3 +245,18 @@ Notice any issues with a repository? Please file a github issue in the repositor
 14. Open fragment_sleep_quality.xml and add a variable for the SleepQualityViewModel to the <data> block
 15. Add a click handler like the one below to each image
 16. Clear cache, rebuild your app, and make sure it runs without errors.
+
+
+## Button States and SnackBar
+1. Open fragment_sleep_tracker.xml.
+2. Add the enabled property to each button, and give it the value of a state variable
+3. Open SleepTrackerViewModel.kt and create three corresponding variables.
+4. Run your app, and that's all there is to it!
+
+### Snackbar
+1. In the SleepTrackerViewModel, create the encapsulated event
+2. Then implement doneShowingSnackbar()
+3. In the SleepTrackerFragment, add an observer
+4. Display the snackbar and immediately reset the event
+5. To trigger the event, in onClear(), set the event value to true
+6. Build and run your app!
