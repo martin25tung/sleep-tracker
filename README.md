@@ -128,3 +128,15 @@ Notice any issues with a repository? Please file a github issue in the repositor
 4. Identify the nightId as the primary key by annotating it with @PrimaryKey, and set the autoGenerate parameter to true:
 5. Annotate the remaining properties with @ColumnInfo and customize their names as shown below.
 6. Build and run your code to make sure it has no errors.
+
+
+## DAO - SleepDatabaseDao
+1. Create an interface SleepDatabaseDao and annotate it with @Dao
+2. Add an @Insert annotation, and an insert() function that takes one SleepNight.
+3. In the same way, add an @Update annotation with an update() function for one SleepNight
+4. Add a @Query annotation with a function get() that takes a Long key argument and returns a nullable SleepNight
+5. Add a parameter to @Query.
+6. Add another @Query with a clear() function and a SQLite query to delete everything from the daily_sleep_quality_table
+7. Add a @Query to getAllNights()
+8. Add a @Query to getTonight(). Make the returned SleepNight nullable, so that it can handle if the table is empty.
+9. Run your app to make sure it has no errors.
