@@ -215,3 +215,33 @@ Notice any issues with a repository? Please file a github issue in the repositor
 2. In fragment_sleep_tracker.xml, in the TextView, in the android:text property, replace the resource string with a reference to nightsString
 3. In Util.kt and uncomment the commented code.
 4. Rebuild and run your code.
+
+## Recording Sleep Quality
+1. Inspect the provided SleepQualityFragment.kt.
+2. Inspect the provided fragment_sleep_quality.xml.
+3. Open navigation.xml and inspect the code.
+4. Open SleepTrackerViewModel.kt.
+5. In SleepTrackerViewModel.kt, in onStopTracking() set a LiveData that changes when you want to navigate.
+6. Add a doneNavigating() function that resets the event.
+7. In the click handler for the STOP button, onStopTracking(), trigger this navigation
+8. In the SleepTrackerFragment, in onCreateView(), add an observer for navigateToSleepQuality.
+9. Inside the observer block, navigate and pass along the ID of the current night, and then call doneNavigating()
+10. Build and run your app. Click START, then click STOP, which should take you to the SleepQualityFragment screen.
+
+### Record the Sleep Quality
+1. In the sleepquality package, open SleepQualityViewModel.kt.
+2. Create a SleepQualityViewModel that takes sleepNightKey and database as arguments
+3. Define a Job, uiScope, and override onCleared(), as previously
+4. To navigate back to the SleepTrackerFragment, analogously implement navigateToSleepTracker and _navigateToSleepTracker, as well as doneNavigating()
+5. Now, create one click handler that you will use for all the smiley sleep quality images, onSetSleepQuality().
+6. Create a SleepQualityViewModelFactory.
+7. Open SleepQualityFragment.
+8. Get the arguments
+9. Get the dataSource
+10. And create a factory passing in the dataSource and sleepNightKey
+11. Get a SleepQualityViewModel reference:
+12. Add the sleepQualityViewModel to the binding object
+13. And add the observer, as before
+14. Open fragment_sleep_quality.xml and add a variable for the SleepQualityViewModel to the <data> block
+15. Add a click handler like the one below to each image
+16. Clear cache, rebuild your app, and make sure it runs without errors.
