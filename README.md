@@ -121,3 +121,10 @@ You can also compare your code locally with the branch of the following step.
 Notice any issues with a repository? Please file a github issue in the repository.
 
 
+## Creating the SleepNight Entity
+1. In the database package, find and open the SleepNight.kt file.
+2. Create the SleepNight data class with parameters for an ID, start time and end time in milliseconds, and a numerical sleep quality rating
+3. Annotate the data class with @Entity, and name the table daily_sleep_quality_table
+4. Identify the nightId as the primary key by annotating it with @PrimaryKey, and set the autoGenerate parameter to true:
+5. Annotate the remaining properties with @ColumnInfo and customize their names as shown below.
+6. Build and run your code to make sure it has no errors.
