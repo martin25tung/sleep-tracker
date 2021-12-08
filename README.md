@@ -140,3 +140,21 @@ Notice any issues with a repository? Please file a github issue in the repositor
 7. Add a @Query to getAllNights()
 8. Add a @Query to getTonight(). Make the returned SleepNight nullable, so that it can handle if the table is empty.
 9. Run your app to make sure it has no errors.
+
+
+## Creating a Room Database
+1. In SleepDatabase.kt, create an abstract class that extends RoomDatabase.
+2. Declare an abstract value that returns the SleepDatabaseDao
+3. Below, define a companion object
+4. Inside the companion object, declare a private nullable variable INSTANCE for the database.
+5. Below, still inside the companion object, define the getInstance()method with a Context parameter, which will return a reference to the SleepDatabase:
+6. Inside getInstance() add a synchronized{} block, and pass in this
+7. Inside the synchronized block, copy the current value of INSTANCE to a local variable, instance
+8. At the end of the synchronized block, still inside the block, return instance
+9. Above the return statement, check if there is already a database stored in instance.
+10. Invoke Room’s databaseBuilder and supply the context that we passed in, the database class, and a name for the database
+11. Add the required migration strategy to the builder
+12. And call .build():
+13. Assign INSTANCE = instance as the final step inside the if statement
+14. Your final code should look like this
+15. Build and run your code to make sure there are no basic errors.
