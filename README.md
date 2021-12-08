@@ -182,3 +182,36 @@ Notice any issues with a repository? Please file a github issue in the repositor
 11. In fragment_sleep_tracker.xml
 12. In SleepTrackerFragment inside onCreateView()
 13. Finally, as always, make sure your code builds and runs without errors.
+
+
+## Coroutines for Long-running Operations
+1. Open the SleepTrackerViewModel.kt file.
+2. Define viewModelJob and assign it an instance of Job
+3. Override onCleared() and cancel all coroutines.
+4. Define a uiScope for the coroutines
+5. Define a variable, tonight, to hold the current night, and make it MutableLiveData
+6. Define a variable, nights. Then getAllNights() from the database and assign to the nights variable
+7. To initialize the tonight variable, create an init block and call initializeTonight(), which you'll define in the next step
+8. Implement initializeTonight(). In the uiScope, launch a coroutine.
+9. Implement getTonightFromDatabase(). Define is as a private suspend function that returns a nullable SleepNight, if there is no current started sleepNight.
+10. Inside the function body, return the result from a coroutine that runs in the Dispatchers.IO context:
+11. Let the coroutine get tonight from the database. If the start and end times are the not the same, meaning, the night has already been completed, return null. Otherwise, return night
+12. Implement onStartTracking(), the click handler for the Start button
+13. Inside onStartTracking(), launch a coroutine in uiScope
+14. Inside the coroutine, create a new SleepNight, which captures the current time as the start time
+15. Call insert() to insert it into the database. You will define insert() shortly
+16. Set tonight to the new night
+17. Define insert() as a private suspend function that takes a SleepNight as its argument
+18. For the body of insert(), launch a coroutine in the IO context and insert the night into the database
+
+### Add Click Handlers for the Buttons
+1. Add onStopTracking() to the view model. Launch a coroutine in the uiScope.
+2. Implement update() using the same pattern as insert()
+3. Analogously, implement onClear() and clear()
+4. Open fragment_sleep_tracker.xml and add click handlers to the three buttons
+
+### Display the data
+1. Add code to transform nights into a nightsString using the formatNights() function from Util.kt:
+2. In fragment_sleep_tracker.xml, in the TextView, in the android:text property, replace the resource string with a reference to nightsString
+3. In Util.kt and uncomment the commented code.
+4. Rebuild and run your code.
