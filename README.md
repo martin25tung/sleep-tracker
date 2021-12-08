@@ -158,3 +158,11 @@ Notice any issues with a repository? Please file a github issue in the repositor
 13. Assign INSTANCE = instance as the final step inside the if statement
 14. Your final code should look like this
 15. Build and run your code to make sure there are no basic errors.
+
+
+## Testing the Room Database
+1. Use the solution code from the previous exercise, which you can download here: Step.03-Solution-Create-RoomDatabase. Work from that code, or copy the test file to your code.
+2. In the androidTest folder, open the SleepDatabaseTest file.
+3. Uncomment the code.
+4. Right-click on the test file in the Project view and choose Run.
+5. After the app builds and runs, verify in the SleepDatabaseTest pane that all the tests have passed.
